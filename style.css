@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --bg-color: rgba(43,43,43,0.7);
+    --btn-hover-color:rgb(43,43,43);
+    --alt-color: rgba(255,0,0,0.7);
+    --hover-width: 75%;
+    --other-width: 25%;
+    --speed: 1000ms;
+
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans', 'san-serif';
+    height: 100vh;
+    overflow: hidden;
+    margin:0;
+}
+
+
+ h1 {
+    color: #fff;
+    font-size: 4em;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+
+}
+
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #333;
+}
+
+.left {
+    left:0;
+    background-image: url('https://images.unsplash.com/photo-1520975661595-6453be3f7070?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2187&q=80');
+    /* background-position: 50% 20% ;
+    background-size: 200%; */
+
+
+}
+.right {
+    right:0;
+    background-image: url('https://images.unsplash.com/photo-1521511189395-b82252213754?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2195&q=80');
+}
+
+
+
+.split {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.split.left::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+
+}
+
+.split.right::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+
+}
+
+.split.right, .split.left,.split.right::before, .split.left::before {
+    transition: all var(--speed) ease-in-out;
+}
+
+.btn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    transform: translateX(-50%);
+    text-decoration: none;
+    color: #fff;
+    bottom: 20%;
+    border: #fff solid 0.2rem;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    width: 15rem;
+    padding: 1.5rem;
+}
+
+.btn:hover {
+    background-color: var(--btn-hover-color);
+    border-color: var(--alt-color);
+}
+
+.hover-left .left {
+    width: var(--hover-width)
+}
+
+.hover-left .right {
+    width: var(--other-width)
+}
+
+.hover-right .right {
+    width: var(--hover-width)
+}
+
+.hover-right .left {
+    width: var(--other-width)
+}
